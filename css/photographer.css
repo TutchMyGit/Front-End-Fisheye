@@ -8,7 +8,7 @@
     margin: 0 100px;
 }
 
-.contact_button {
+#contact_button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -73,4 +73,8 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+#photographerProfil {
+    display: flex;
 }

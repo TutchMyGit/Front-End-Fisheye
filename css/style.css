@@ -44,7 +44,40 @@ h1 {
     font-size: 36px;
 }
 
-.photographer_section article img {
+.linkHomePage {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.imgProfilPhotographer {
+    border-radius: 50%;
+    object-fit: cover;
     height: 200px;
-    width: 200px;
+    width: 200px
+}
+
+.articleHomePage h2 {
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.articleHomePage p {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.locationHomePage {
+    color: #D3573C;
+}
+
+.taglinesHomePage {
+    font-weight: 600;
+}
+
+.pricesHomePage {
+    font-weight: 200;
 }
