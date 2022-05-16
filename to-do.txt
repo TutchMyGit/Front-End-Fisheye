@@ -1,0 +1,5 @@
+mise en page
+click on like = increment
+click again = decrement
+
+voir pour array.protype.sort();

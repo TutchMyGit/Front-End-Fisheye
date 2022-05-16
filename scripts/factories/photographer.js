@@ -1,7 +1,6 @@
 function photographerFactory(data) {
     
-    console.log("launching factory");
-    const { name, city, country, tagline, price, portrait, id } = data;
+    const { name, city, country, tagline, price, portrait, id,} = data;
 
     const picture = `assets/photographers/${portrait}`;
     const url = `./photographer.html?id=${id}`;
@@ -11,7 +10,6 @@ function photographerFactory(data) {
 
         function createPhotographerProfil() {
             const contactButton = document.getElementById("contact_button");
-            const parentDiv = contactButton.parentNode;
             const photographerProfil = document.createElement("div");
             photographerProfil.setAttribute("id", "photographerProfil");
             const h1 = document.createElement( "h1" );
@@ -31,8 +29,25 @@ function photographerFactory(data) {
             photographerProfil.appendChild(block);
             photographerProfil.appendChild(contactButton);
             photographerProfil.appendChild(img);
-
-            return (photographerProfil);
+            
+            return photographerProfil;
+        }
+        
+        function resumePhotographer() {
+            const main = document.getElementById("main");
+            const resumeBlock = document.createElement("div");
+            resumeBlock.setAttribute("class", "resumeBlock");
+            const totalLikes = document.createElement("div");
+            totalLikes.setAttribute("id", "totalLikes");
+            totalLikes.innerText = `${localStorage.getItem('a')}`;
+            const pricePerDay = document.createElement("div");
+            pricePerDay.setAttribute("id", "pricePerDay");
+            pricePerDay.innerText = `${price}€/jour;`;
+            // corriger price (doit etre de photographer et non de media)
+            main.appendChild(resumeBlock);
+            resumeBlock.appendChild(totalLikes);
+            resumeBlock.appendChild(pricePerDay);
+            return (resumeBlock);
         }
 
         function getUserCardDOM() {
@@ -63,5 +78,5 @@ function photographerFactory(data) {
             article.appendChild(prices);
             return (article);
         }
-        return { name, city, country, tagline, price, picture, id, getUserCardDOM, createPhotographerProfil }
+        return { name, city, country, tagline, price, picture, id, getUserCardDOM, createPhotographerProfil, resumePhotographer}
 }

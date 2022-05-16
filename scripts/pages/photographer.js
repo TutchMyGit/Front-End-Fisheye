@@ -1,6 +1,7 @@
-async function getPhotographers() {
-    // Penser à remplacer par les données récupérées dans le json
+let myPhotograph = {};
+let mediaAll = [];
 
+async function getPhotographers(id) {
        return fetch("/data/photographers.json")
        .then(response => {
             if(!response.ok) {
@@ -8,17 +9,20 @@ async function getPhotographers() {
             }
             return response.json();
         })
-        .then(debilus => {
-            console.log(debilus.photographers)
-            return ({photographers: [...debilus.photographers]});
+        .then(photographer => {
+            let arrayPhotograph = photographer.photographers;
+
+            arrayPhotograph.forEach(element => {
+                if (element.id == id) { myPhotograph = element;}
+            });
+            return ({photographers: [...photographer.photographers]});
         })
         .catch(() => {
             return true;
         })
 };
 
-async function getMedia() {
-
+async function getMedia(id) {
     return fetch("/data/photographers.json")
     .then(response => {
         if(!response.ok) {
@@ -26,54 +30,77 @@ async function getMedia() {
         }
         return response.json();
     })
-    .then(abc => {
-        console.log(abc.media)
-        return ({medias: [...abc.media]});
+    .then(medias => {
+
+        let arrayMedia = medias.media;
+
+        arrayMedia.forEach(element => {
+            if (element.photographerId == id) {
+                mediaAll.push(element);
+            }
+        });
+        return ({media: [...medias.media]});
     })
     .catch(() => {
         return true;
     })
-}
-
-async function displayData(photographers) {
-    let params = new URL(document.location).searchParams;
-             let urlId = parseInt(params.get('id'))
-
-    const photographHeader = document.getElementById("photograph-header");
-    
-    photographers.forEach((photographer) => {
-        if (photographer.id == urlId) {
-            const photographProfil = photographerFactory(photographer);
-            const userCardDOM = photographProfil.createPhotographerProfil();
-            photographHeader.appendChild(userCardDOM);
-        }});
 };
 
-async function createMedia(medias) {
-    let params = new URL(document.location).searchParams;
-        let urlId = parseInt(params.get('id'))
-
+function displayData() {
     const photographHeader = document.getElementById("photograph-header");
-    console.log("testing first step")
-    
-    medias.forEach((media) => {
-        if(media.photographerId == urlId) {
-        console.log("second step")
+
+    const photographProfil = photographerFactory(myPhotograph);
+    const userCardDOM = photographProfil.createPhotographerProfil();
+    photographHeader.appendChild(userCardDOM);
+};
+
+function launchingMediaFactory() {
+    const main = document.getElementById("main");
+
+    mediaAll.forEach((media) => {
         if(media.image) {
-            console.log(media)
+            const mediaLaunch = mediaFactory(media, myPhotograph)
+            const mediaImage = mediaLaunch.createPictureMedia();
+            main.appendChild(mediaImage);
         }
         if(media.video) {
-            console.log(media.video)
+            const mediaLaunch = mediaFactory(media, myPhotograph)
+            const mediaVideo = mediaLaunch.createVideoMedia();
+            main.appendChild(mediaVideo);
         }
-    }})
+    })
+};
+
+function createDropdown() {
+    const main = document.getElementById("main");
+    const labelDropdown = document.createElement("label");
+    labelDropdown.setAttribute("for", "dropdown");
+    labelDropdown.innerText= "Trier par";
+    const dropBtn = document.createElement("select");
+    dropBtn.setAttribute("id", "dropBtn");
+    const dropdownContent = document.createElement("div");
+    dropdownContent.setAttribute("id", "dropdownContent");
+    labelDropdown.appendChild(dropBtn);
+
+    const array = [`Popularité`, `Date`, `Titre`];
+    
+    array.forEach(element => {
+        const dropdownLink = document.createElement("option");
+        dropdownLink.innerText= element;
+        dropBtn.appendChild(dropdownLink);
+    });
+    
+    main.appendChild(labelDropdown);
 };
 
 async function init() {
-    // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    const { medias } = await getMedia();
+    const params = new URL(document.location).searchParams;
+    const urlId = parseInt(params.get('id'));
+    const { photographers } = await getPhotographers(urlId);
+    const { media } = await getMedia(urlId);
     displayData(photographers);
-    createMedia(medias);
+    createDropdown();
+    launchingMediaFactory(media);
 };
 
 init();
