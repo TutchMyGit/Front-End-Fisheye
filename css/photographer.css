@@ -1,5 +1,6 @@
 main label {
-    margin-left: 20px;
+    margin-left: 25px;
+    font-weight: bold;
 }
 
 .photograph-header {
@@ -12,6 +13,9 @@ main label {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 25px;
+    padding: 30px 0px;
+    background-color: #FAFAFA;
 }
 
 #photographerName {
@@ -101,7 +105,7 @@ main label {
 #content-media {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin: 25px 25px 50px 25px;
 }
 
@@ -391,6 +395,10 @@ form input {
 
     #blockTotal {
         left: 50%;
+    }
+
+    #content-media {
+        justify-content: space-around;
     }
 }
 
