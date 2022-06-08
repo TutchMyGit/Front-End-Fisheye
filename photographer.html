@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
   </head>
   <body>
     <header id="main_header">
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" aria-label="Fisheye Home Page"/></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/></a>
     </header>
     <main id="main">
       <div id="photograph-header">
@@ -24,7 +24,7 @@
 			<div class="modal">
 				<header>
           <h2 id="contact_photographer">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()"/>
+          <img src="assets/icons/close.svg" alt="close button" onclick="closeModal()"/>
         </header>
 				<form>
 					<div>
@@ -46,14 +46,14 @@
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/factories/photographer.js"></script>
 
-    <div id="backgroundFullPicture" aria-label="image closeup view">
+    <div id="backgroundFullPicture" aria-hidden="true" aria-label="image closeup view">
       <div id="previousImage">
         <i class="fas fa-chevron-left" aria-hidden="true" aria-label="Previous image"></i></div>
       <div>
         <div id="closeIconRelative">
-          <img id="imagesFullPicture" class="fullPicture">
-          <video id="videosFullPicture" class="fullPicture"></video>
-          <img id="closeIcon" aria-label="Close dialog" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()">
+          <img src="#" id="imagesFullPicture" class="fullPicture" alt="#">
+          <video src="#" id="videosFullPicture" class="fullPicture"></video>
+          <img id="closeIcon" alt="Close dialog" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()">
         </div>
         <p id="titleFullPicture"></p></div>
       <!-- <img id="closeIcon" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()"> -->
