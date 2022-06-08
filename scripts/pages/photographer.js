@@ -7,7 +7,7 @@ async function getPhotographers(id) {
        return fetch("data/photographers.json")
        .then(response => {
             if(!response.ok) {
-                throw new Error("HTTP error " + response.status);     // throw = arrêt de la function et va directement a catch
+                throw new Error("HTTP error " + response.status);
             }
             return response.json();
         })
@@ -29,7 +29,7 @@ async function getMedia(id) {
     return fetch("data/photographers.json")
     .then(response => {
         if(!response.ok) {
-            throw new Error("HTTP error " + response.status);     // throw = arrêt de la function et va directement a catch
+            throw new Error("HTTP error " + response.status);
         }
         return response.json();
     })
@@ -194,8 +194,6 @@ function fullScreenPicture(indexMedia) {
     let videoPath = `assets/images/${myPhotograph.name.split(' ')[0]}/${media.video}`
     images = document.getElementById("imagesFullPicture")
     videos = document.getElementById("videosFullPicture")
-    // const fullPicture = document.querySelector(".fullPicture");
-    // fullPicture.setAttribute("src", imagePath);
 
     if(media.image){
         images.setAttribute("src", imagePath);

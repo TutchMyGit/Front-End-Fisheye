@@ -1,10 +1,9 @@
     async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
 
            return fetch("data/photographers.json")
            .then(response => {
                 if(!response.ok) {
-                    throw new Error("HTTP error " + response.status);  // throw = arrêt de la function et va directement a catch
+                    throw new Error("HTTP error " + response.status);
                 }
                 return response.json();
             })
@@ -28,7 +27,6 @@
     };
 
     async function init() {
-        // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
         displayData(photographers);
     };
