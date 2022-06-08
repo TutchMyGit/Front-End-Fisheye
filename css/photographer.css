@@ -207,7 +207,8 @@ main label {
 
 #imagesFullPicture {
     position: relative;
-    width: 60vh;
+    width: auto;
+    max-width: 850px;
     height: auto;
     max-height: 800px;
     -webkit-box-shadow: 6px 0px 1px 0px #c9c9c9; 
@@ -216,7 +217,8 @@ main label {
 
 #videosFullPicture {
     position: relative;
-    width: 60vh;
+    width: auto;
+    max-width: 850px;
     height: auto;
     max-height: 800px;
     -webkit-box-shadow: 6px 0px 1px 0px #c9c9c9; 
@@ -385,6 +387,13 @@ form input {
     #blockTotal {
         left: 65%;
     }
+    #imagesFullPicture {
+        max-width: 600px;
+    }
+    
+    #videosFullPicture {
+        max-width: 600px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -456,15 +465,11 @@ form input {
     }
 
     #imagesFullPicture {
-        width: 30vh;
-        height: auto;
-        max-height: 800px;
+        max-width: 300px;
     }
     
     #videosFullPicture {
-        width: 30vh;
-        height: auto;
-        max-height: 800px;
+        max-width: 300px;
     }
 
     #closeIcon {
