@@ -23,6 +23,7 @@ function photographerFactory(data) {
             taglines.setAttribute("id", "photographerTagline");
             img.setAttribute("src", picture);
             img.setAttribute("alt", name);
+            img.setAttribute("aria-label", name);
             img.setAttribute("class", "imgProfilPhotographer");
             block.appendChild(h1);
             block.appendChild(location);
@@ -44,7 +45,6 @@ function photographerFactory(data) {
             const pricePerDay = document.createElement("div");
             pricePerDay.setAttribute("id", "pricePerDay");
             pricePerDay.innerText = `${price}€/jour;`;
-            // corriger price (doit etre de photographer et non de media)
             main.appendChild(resumeBlock);
             resumeBlock.appendChild(totalLikes);
             resumeBlock.appendChild(pricePerDay);

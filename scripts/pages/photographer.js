@@ -82,6 +82,7 @@ function createDropdown() {
     labelDropdown.innerText= "Trier par";
     const dropBtn = document.createElement("select");
     dropBtn.setAttribute("id", "dropBtn");
+    dropBtn.setAttribute("aria-label", "Order by Popularity");
     const dropdownContent = document.createElement("div");
     dropdownContent.setAttribute("id", "dropdownContent");
     labelDropdown.appendChild(dropBtn);
@@ -99,10 +100,13 @@ function createDropdown() {
     document.getElementById("dropBtn").addEventListener('change', (event) =>{
         if(event.target.value=="Popularité") {
             sortByPopularity()
+            dropBtn.setAttribute("aria-label", "Order by Popularity");
         } else if(event.target.value=="Date") {
             sortByDate()
+            dropBtn.setAttribute("aria-label", "Order by Date");
         } else if(event.target.value=="Titre") {
             sortByTitle()
+            dropBtn.setAttribute("aria-label", "Order by Title");
         }
     })
 };
@@ -195,11 +199,13 @@ function fullScreenPicture(indexMedia) {
 
     if(media.image){
         images.setAttribute("src", imagePath);
+        images.setAttribute("aria-label", media.title)
         videos.style.display = "none";
         images.style.display = "block";
         
     } else if(media.video){
         videos.setAttribute("src", videoPath);
+        videos.setAttribute("aria-label", media.title)
         images.style.display = "none";
         videos.style.display = "block";
     }
@@ -216,11 +222,13 @@ function fullScreenPicture(indexMedia) {
         videoPath = `assets/images/${myPhotograph.name.split(' ')[0]}/${media.video}`
             if(media.image){
                 images.setAttribute("src", imagePath);
+                images.setAttribute("aria-label", media.title)
                 videos.style.display = "none";
                 images.style.display = "block";
                 
             } else if(media.video){
                 videos.setAttribute("src", videoPath);
+                videos.setAttribute("aria-label", media.title)
                 images.style.display = "none";
                 videos.style.display = "block";
             }

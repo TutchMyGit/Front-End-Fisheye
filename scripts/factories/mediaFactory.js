@@ -17,6 +17,7 @@ function mediaFactory(media, myPhotograph) {
             const img = document.createElement("img");
             img.setAttribute("src", imagePath);
             img.setAttribute("alt", media.title);
+            img.setAttribute("aria-label", `${media.title}, closeup view`)
             img.setAttribute("class", "photographerImages");
             img.setAttribute("onclick", `fullScreenPicture(${media.index})`);
             img.dataset.index = media.index;
@@ -28,7 +29,8 @@ function mediaFactory(media, myPhotograph) {
             like.textContent = media.likes;
             const coeur = document.createElement("button");
             coeur.setAttribute("class", "imgCoeur");
-            coeur.setAttribute('onclick', `changeLikeValue("${media.id}");`)
+            coeur.setAttribute('onclick', `changeLikeValue("${media.id}");`);
+            coeur.setAttribute("aria-label", "likes");
             blockLike.dataset.id = media.id;
             coeur.innerHTML = `<i class="far fa-heart">`;
             blockImg.appendChild(img);
@@ -49,6 +51,7 @@ function mediaFactory(media, myPhotograph) {
             const video = document.createElement("video");
             video.setAttribute("src", videoPath);
             video.setAttribute("alt", media.title);
+            video.setAttribute("aria-label", `${media.title}, closeup view`)
             video.setAttribute("class", "photographerVideos")
             video.setAttribute("onclick", `fullScreenPicture(${media.index})`);
             const underTitle = document.createElement("p");
@@ -59,7 +62,8 @@ function mediaFactory(media, myPhotograph) {
             like.textContent = media.likes;
             const coeur = document.createElement("button");
             coeur.setAttribute("class", "imgCoeur");
-            coeur.setAttribute('onclick', `changeLikeValue("${media.id}");`)
+            coeur.setAttribute('onclick', `changeLikeValue("${media.id}");`);
+            coeur.setAttribute("aria-label", "likes");
             blockLike.dataset.id = media.id;
             coeur.innerHTML = `<i class="far fa-heart">`;
             blockImg.appendChild(video);
