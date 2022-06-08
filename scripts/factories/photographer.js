@@ -14,6 +14,7 @@ function photographerFactory(data) {
             photographerProfil.setAttribute("id", "photographerProfil");
             const h1 = document.createElement( "h1" );
             const block = document.createElement( "div" );
+            block.setAttribute("id", "photographerData")
             h1.textContent = name;
             h1.setAttribute("id", "photographerName");
             location.textContent = `${city}, ${country}`;
