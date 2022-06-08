@@ -4,7 +4,7 @@ const main = document.getElementById("main");
 let totalLike = 0;
 
 async function getPhotographers(id) {
-       return fetch("/data/photographers.json")
+       return fetch("data/photographers.json")
        .then(response => {
             if(!response.ok) {
                 throw new Error("HTTP error " + response.status);     // throw = arrêt de la function et va directement a catch
@@ -26,7 +26,7 @@ async function getPhotographers(id) {
 };
 
 async function getMedia(id) {
-    return fetch("/data/photographers.json")
+    return fetch("data/photographers.json")
     .then(response => {
         if(!response.ok) {
             throw new Error("HTTP error " + response.status);     // throw = arrêt de la function et va directement a catch
