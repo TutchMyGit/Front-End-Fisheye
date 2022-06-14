@@ -208,8 +208,7 @@ function fullScreenPicture(indexMedia) {
         videos.style.display = "block";
     }
 
-    const chevronRight = document.querySelector(".fa-chevron-right");
-    chevronRight.addEventListener("click", function(){
+    function nextSlide() {
         index++
         if(index===mediaAll.length-1){
             index=0;
@@ -230,10 +229,9 @@ function fullScreenPicture(indexMedia) {
                 images.style.display = "none";
                 videos.style.display = "block";
             }
-    })
+    }
 
-    const chevronLeft = document.querySelector(".fa-chevron-left");
-    chevronLeft.addEventListener("click", function(){
+    function previousSlide() {
         index--
         if(index===0){
             index=mediaAll.length-1;
@@ -252,6 +250,25 @@ function fullScreenPicture(indexMedia) {
                 images.style.display = "none";
                 videos.style.display = "block";
             }
+    }
+
+    const chevronRight = document.querySelector(".fa-chevron-right");
+    chevronRight.addEventListener("click", function(){
+        nextSlide();
+    })
+
+    const chevronLeft = document.querySelector(".fa-chevron-left");
+    chevronLeft.addEventListener("click", function(){
+        previousSlide();
+    })
+    document.body.addEventListener("keydown", function(event) {
+        if(event.code === "ArrowRight") {
+            nextSlide();
+        } else if(event.code === "ArrowLeft") {
+            previousSlide();
+        } else if(event.code === "Escape") {
+            closeFullDisplay();
+        }
     })
 }
 
@@ -262,6 +279,18 @@ function closeFullDisplay() {
 function auto_height(elem) {
     elem.style.height = "120px";
     elem.style.height = (elem.scrollHeight)+"px";
+}
+
+function getDataContact(event) {
+    event.preventDefault();
+
+    let firstName = document.getElementById("first_name").value;
+    let lastName = document.getElementById("last_name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    console.log(`Prénom : ${firstName} ; Nom : ${lastName} ; Email : ${email} ; Message : ${message}`);
+    closeModal();
 }
 
 async function init() {

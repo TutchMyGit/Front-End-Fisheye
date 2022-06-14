@@ -24,20 +24,20 @@
 			<div class="modal">
 				<header>
           <h2 id="contact_photographer">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" alt="close button" onclick="closeModal()"/>
+          <img tabindex="0" onkeydown="if(event.keyCode == 13 || event.keyCode == 32 || event.keyCode == 27){event.target.click()}" src="assets/icons/close.svg" alt="close button" onclick="closeModal()"/>
         </header>
-				<form>
+				<form onsubmit="getDataContact(event)">
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input id="first_name" />
             <label>Nom</label>
-						<input />
+						<input id="last_name" />
             <label>Email</label>
-						<input />
+						<input id="email" />
             <label>Votre message</label>
-						<textarea rows="1" class="auto_height" oninput="auto_height(this)"></textarea>
+						<textarea id="message" rows="1" class="auto_height" oninput="auto_height(this)"></textarea>
 					</div>
-          <button id="contact_button_send">Envoyer</button>
+          <button id="contact_button_send" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -56,7 +56,6 @@
           <img id="closeIcon" alt="Close dialog" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()">
         </div>
         <p id="titleFullPicture"></p></div>
-      <!-- <img id="closeIcon" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()"> -->
       <div id="nextImage">
         <i class="fas fa-chevron-right" aria-hidden="true" aria-label="Next image"></i>
       </div>

@@ -122,10 +122,6 @@ h1 {
     .photographer_section {
         grid-template-columns: 1fr;
     }
-
-    header {
-        flex-direction: column;
-    }
     
     .logo {
         margin: 25px 0;
