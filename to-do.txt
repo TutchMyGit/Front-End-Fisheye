@@ -1,4 +1,0 @@
-voir pour array.protype.sort();
-
-afficher le total des likes + price = done
-voir pour le carrousel
