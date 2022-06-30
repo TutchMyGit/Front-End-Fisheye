@@ -46,18 +46,18 @@
     <script src="scripts/factories/mediaFactory.js"></script>
     <script src="scripts/factories/photographer.js"></script>
 
-    <div id="backgroundFullPicture" aria-hidden="true" aria-label="image closeup view">
+    <div id="backgroundFullPicture">
       <div id="previousImage">
-        <i class="fas fa-chevron-left" aria-hidden="true" aria-label="Previous image"></i></div>
+        <i class="fas fa-chevron-left" title="Image Precedente"></i></div>
       <div>
         <div id="closeIconRelative">
-          <img src="#" id="imagesFullPicture" class="fullPicture" alt="#">
+          <img src="#" id="imagesFullPicture" class="fullPicture">
           <video src="#" id="videosFullPicture" class="fullPicture"></video>
-          <img id="closeIcon" alt="Close dialog" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()">
+          <img id="closeIcon" alt="Close" src="assets/icons/closeContact.svg" onclick="closeFullDisplay()">
         </div>
         <p id="titleFullPicture"></p></div>
-      <div id="nextImage">
-        <i class="fas fa-chevron-right" aria-hidden="true" aria-label="Next image"></i>
+      <div id="nextImage"  aria-label="Next image">
+        <i class="fas fa-chevron-right" title="Image Suivante" aria-label="Image Suivante" role="img"></i>
       </div>
     </div>
   </body>

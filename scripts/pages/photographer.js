@@ -183,9 +183,9 @@ function sortByTitle() {
 }
 
 function fullScreenPicture(indexMedia) {
-    console.log("hey")
     let index = indexMedia;
     document.getElementById("backgroundFullPicture").style.display = "flex";
+    document.getElementById("main").style.display = "none";
 
     let media = mediaAll[index];
     const titleFullPicture = document.getElementById("titleFullPicture");
@@ -197,13 +197,15 @@ function fullScreenPicture(indexMedia) {
 
     if(media.image){
         images.setAttribute("src", imagePath);
-        images.setAttribute("aria-label", media.title)
+        images.setAttribute("aria-label", media.title);
+        images.setAttribute("alt", media.title);
         videos.style.display = "none";
         images.style.display = "block";
         
     } else if(media.video){
         videos.setAttribute("src", videoPath);
-        videos.setAttribute("aria-label", media.title)
+        videos.setAttribute("aria-label", media.title);
+        videos.setAttribute("alt", media.title);
         images.style.display = "none";
         videos.style.display = "block";
     }
@@ -233,7 +235,7 @@ function fullScreenPicture(indexMedia) {
 
     function previousSlide() {
         index--
-        if(index===0){
+        if(index===-1){
             index=mediaAll.length-1;
         }
         media = mediaAll[index]
@@ -242,11 +244,13 @@ function fullScreenPicture(indexMedia) {
         videoPath = `assets/images/${myPhotograph.name.split(' ')[0]}/${media.video}`
             if(media.image){
                 images.setAttribute("src", imagePath);
+                images.setAttribute("aria-label", media.title)
                 videos.style.display = "none";
                 images.style.display = "block";
                 
             } else if(media.video){
                 videos.setAttribute("src", videoPath);
+                videos.setAttribute("aria-label", media.title)
                 images.style.display = "none";
                 videos.style.display = "block";
             }
@@ -274,6 +278,7 @@ function fullScreenPicture(indexMedia) {
 
 function closeFullDisplay() {
     document.getElementById("backgroundFullPicture").style.display = "none";
+    document.getElementById("main").style.display = "block";
 }
 
 function auto_height(elem) {
